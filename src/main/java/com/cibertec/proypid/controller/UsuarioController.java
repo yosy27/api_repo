@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -41,9 +42,16 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @PostMapping
+    @PostMapping ("/usuarios")
     public ResponseEntity<UsuarioEntity> registrarCliente(@RequestBody UsuarioEntity nuevoUsuario) {
         UsuarioEntity usuarioGuardado = usuarioService.registrarCliente(nuevoUsuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioGuardado);
     }
+
+    @GetMapping("/usuarios")
+    public ResponseEntity<List<UsuarioEntity>> listarTodos() {
+        List<UsuarioEntity> usuarios = usuarioService.listarTodos();
+        return ResponseEntity.ok(usuarios);
+    }
+
 }

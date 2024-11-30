@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -51,4 +52,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         // Simulación de generación de token (puedes usar JWT)
         return "Bearer " + UUID.randomUUID();
     }
+
+    @Override
+    public List<UsuarioEntity> listarTodos() {
+        return usuarioRepository.findAll();
+    }
+
+
 }
