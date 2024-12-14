@@ -20,7 +20,7 @@ public class ProyectoEntity {
     private String fechaRegistro;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false) // Llave foránea
+    @JoinColumn(name = "idUsuario") // Llave foránea
     private UsuarioEntity usuario; // Relación con UsuarioEntity
 
     public ProyectoEntity() {

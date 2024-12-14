@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -40,19 +41,24 @@ public class UsuarioEntity {
     @Column(name = "direccion")
     private String direccion;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<ProyectoEntity> proyectos;
+
+
 
     public UsuarioEntity() {
     }
 
-    public UsuarioEntity(String apellido, Integer idUsuario, String nombre, String email, String password, String dni, String telefono, String direccion) {
-        this.apellido = apellido;
+    public UsuarioEntity(Integer idUsuario, String nombre, String apellido, String password, String email, String dni, String telefono, String direccion, List<ProyectoEntity> proyectos) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
-        this.email = email;
+        this.apellido = apellido;
         this.password = password;
+        this.email = email;
         this.dni = dni;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.proyectos = proyectos;
     }
 
     public Integer getIdUsuario() {
@@ -119,4 +125,11 @@ public class UsuarioEntity {
         this.direccion = direccion;
     }
 
+    public List<ProyectoEntity> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(List<ProyectoEntity> proyectos) {
+        this.proyectos = proyectos;
+    }
 }
