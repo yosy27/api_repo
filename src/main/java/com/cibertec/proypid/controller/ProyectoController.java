@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v2")
+@RequestMapping("/api/v1")
 public class ProyectoController {
 
     @Autowired
