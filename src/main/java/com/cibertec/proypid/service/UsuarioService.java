@@ -8,6 +8,8 @@ public interface UsuarioService {
 
     UsuarioEntity buscarPorDni(String dni);
 
+    UsuarioEntity obtenerUsuarioPorId(Integer idUsuario);
+
     UsuarioEntity buscarPorCorreo(String correo);
 
     UsuarioEntity buscarPorNombre(String nombre);
