@@ -16,8 +16,8 @@ public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "idUsuario")
+    private Integer idUsuario;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -40,112 +40,83 @@ public class UsuarioEntity {
     @Column(name = "direccion")
     private String direccion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_rol", nullable = false)
-    private RolEntity rol;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "estado", nullable = false)
-    private EstadoUsuario estado;
-
-    public enum EstadoUsuario {
-        ACTIVO, INACTIVO
+    public UsuarioEntity() {
     }
 
-    public UsuarioEntity(Integer id, String nombre, String apellido, String email, String password, String dni, String telefono, String direccion, RolEntity rol, EstadoUsuario estado) {
-        this.id = id;
-        this.nombre = nombre;
+    public UsuarioEntity(String apellido, Integer idUsuario, String nombre, String email, String password, String dni, String telefono, String direccion) {
         this.apellido = apellido;
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
         this.email = email;
         this.password = password;
         this.dni = dni;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.rol = rol;
-        this.estado = estado;
     }
 
-    public UsuarioEntity() {
-
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
-    public Integer getId() {
-        return id;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public RolEntity getRol() {
-        return rol;
-    }
-
-    public EstadoUsuario getEstado() {
-        return estado;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public String getTelefono() {
+        return telefono;
     }
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    public void setRol(RolEntity rol) {
-        this.rol = rol;
-    }
-
-    public void setEstado(EstadoUsuario estado) {
-        this.estado = estado;
-    }
 }

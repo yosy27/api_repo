@@ -37,7 +37,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioEntity registrarCliente(UsuarioEntity usuario) {
-        usuario.setEstado(UsuarioEntity.EstadoUsuario.ACTIVO); // Configurar estado por defecto
         return usuarioRepository.save(usuario);
 
     }
