@@ -2,6 +2,7 @@ package com.cibertec.proypid.controller;
 
 import com.cibertec.proypid.model.entity.ProyectoEntity;
 import com.cibertec.proypid.model.entity.UsuarioEntity;
+import com.cibertec.proypid.repository.ProyectoRepository;
 import com.cibertec.proypid.service.ProyectoService;
 import com.cibertec.proypid.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,15 @@ public class ProyectoController {
     @Autowired
     private ProyectoService proyectoService;
 
+    @Autowired
+    private ProyectoRepository proyectoRepository;
+
+
+    @GetMapping("/existe/{nombre}")
+    public ResponseEntity<Boolean> existeNombreProyecto(@PathVariable String nombre){
+        boolean existe = proyectoRepository.existsByNombre(nombre);
+        return ResponseEntity.ok(existe);
+    }
 
     @PostMapping("/registrarProyecto")
     public ResponseEntity<ProyectoEntity> registrarProyecto(@RequestBody ProyectoEntity nuevoProyecto) {
