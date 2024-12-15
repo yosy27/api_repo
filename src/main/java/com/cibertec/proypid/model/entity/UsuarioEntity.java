@@ -41,15 +41,10 @@ public class UsuarioEntity {
     @Column(name = "direccion")
     private String direccion;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<ProyectoEntity> proyectos;
-
-
-
     public UsuarioEntity() {
     }
 
-    public UsuarioEntity(Integer idUsuario, String nombre, String apellido, String password, String email, String dni, String telefono, String direccion, List<ProyectoEntity> proyectos) {
+    public UsuarioEntity(Integer idUsuario, String nombre, String apellido, String password, String email, String dni, String telefono, String direccion) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -58,7 +53,6 @@ public class UsuarioEntity {
         this.dni = dni;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.proyectos = proyectos;
     }
 
     public Integer getIdUsuario() {
@@ -125,11 +119,4 @@ public class UsuarioEntity {
         this.direccion = direccion;
     }
 
-    public List<ProyectoEntity> getProyectos() {
-        return proyectos;
-    }
-
-    public void setProyectos(List<ProyectoEntity> proyectos) {
-        this.proyectos = proyectos;
-    }
 }

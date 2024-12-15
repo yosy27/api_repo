@@ -16,20 +16,9 @@ public class ProyectoServiceImpl implements ProyectoService {
     @Autowired
     private ProyectoRepository proyectoRepository;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
     @Override
     public ProyectoEntity registrarProyecto(ProyectoEntity proyecto) {
-        UsuarioEntity usuario = usuarioRepository.findById(proyecto.getUsuario().getIdUsuario()).orElse(null);
-
-        if (usuario == null) {
-            throw new RuntimeException("Usuario no encontrado");
-        }
-
-        // Asociar el usuario al proyecto
-        proyecto.setUsuario(usuario);
-
         return proyectoRepository.save(proyecto);
     }
 

@@ -19,18 +19,13 @@ public class ProyectoEntity {
     @Column(name = "fechaRegistro", nullable = false)
     private String fechaRegistro;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsuario") // Llave foránea
-    private UsuarioEntity usuario; // Relación con UsuarioEntity
-
     public ProyectoEntity() {
     }
 
-    public ProyectoEntity(Integer idProyecto, String nombre, String fechaRegistro, UsuarioEntity usuario) {
+    public ProyectoEntity(Integer idProyecto, String nombre, String fechaRegistro) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.fechaRegistro = fechaRegistro;
-        this.usuario = usuario;
     }
 
     public Integer getIdProyecto() {
@@ -57,11 +52,4 @@ public class ProyectoEntity {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public UsuarioEntity getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioEntity usuario) {
-        this.usuario = usuario;
-    }
 }

@@ -19,20 +19,10 @@ public class ProyectoController {
     @Autowired
     private ProyectoService proyectoService;
 
-    @Autowired
-    private UsuarioService usuarioService;
 
     @PostMapping("/registrarProyecto")
     public ResponseEntity<ProyectoEntity> registrarProyecto(@RequestBody ProyectoEntity nuevoProyecto) {
-        // Obtener el UsuarioEntity usando el idUsuario
-        UsuarioEntity usuario = usuarioService.obtenerUsuarioPorId(nuevoProyecto.getUsuario().getIdUsuario());
-
-        // Asignar el UsuarioEntity al proyecto
-        nuevoProyecto.setUsuario(usuario);
-
-        // Guardar el proyecto
         ProyectoEntity proyectoGuardado = proyectoService.registrarProyecto(nuevoProyecto);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(proyectoGuardado);
     }
 
