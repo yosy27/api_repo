@@ -8,6 +8,7 @@ import com.cibertec.proypid.service.ProyectoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,6 +20,7 @@ public class ProyectoServiceImpl implements ProyectoService {
 
     @Override
     public ProyectoEntity registrarProyecto(ProyectoEntity proyecto) {
+        proyecto.setFechaRegistro(LocalDate.now());
         return proyectoRepository.save(proyecto);
     }
 

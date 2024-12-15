@@ -2,6 +2,9 @@ package com.cibertec.proypid.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDate;
 
 
 @Entity
@@ -17,12 +20,12 @@ public class ProyectoEntity {
     private String nombre;
 
     @Column(name = "fechaRegistro", nullable = false)
-    private String fechaRegistro;
+    private LocalDate fechaRegistro;
 
     public ProyectoEntity() {
     }
 
-    public ProyectoEntity(Integer idProyecto, String nombre, String fechaRegistro) {
+        public ProyectoEntity(Integer idProyecto, String nombre, LocalDate fechaRegistro) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.fechaRegistro = fechaRegistro;
@@ -44,11 +47,11 @@ public class ProyectoEntity {
         this.nombre = nombre;
     }
 
-    public String getFechaRegistro() {
+    public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(String fechaRegistro) {
+    public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
